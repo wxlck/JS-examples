@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制div属性</title>
+	<style>
+		#div1 {
+			width: 100px;
+			height: 100px;
+			background: #ccc;
+			margin: 20px auto;
+		}
+
+		body {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变宽</button>
+	<button id="btn2">变高</button>
+	<button id="btn3">变色</button>
+	<button id="btn4">隐藏</button>
+	<button id="btn5">重置</button>
+	<div id="div1"></div>
+	<script>
+		window.onload = function () {
+			var btn1 = document.getElementById('btn1');
+			var btn2 = document.getElementById('btn2');
+			var btn3 = document.getElementById('btn3');
+			var btn4 = document.getElementById('btn4');
+			var btn5 = document.getElementById('btn5');
+			var div1 = document.getElementById('div1');
+
+			btn1.onclick = function () {
+				div1.style.width = '200px';
+			};
+			btn2.onclick = function () {
+				div1.style.height = '200px';
+			};
+			btn3.onclick = function () {
+				div1.style.background = 'red';
+			};
+			btn4.onclick = function () {
+				div1.style.display = 'none';
+			};
+			btn5.onclick = function () {
+				div1.style.display = 'block';
+				div1.style.width = div1.style.height = '100px';
+				div1.style.background = '#ccc';
+			}
+		}
+	</script>
+</body>
+</html>
