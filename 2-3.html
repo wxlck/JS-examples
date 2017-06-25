@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求出数组中所有数字的和</title>
+	<style>
+		#outer {
+			width: 510px;
+			margin: 0 auto;
+		}
+		#txt {
+			width: 200px;
+			margin-bottom: 6px;
+		}
+		#result {
+			color: red;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<input type="text" id="txt"> &nbsp; 输入数字求和，数字之间用半角","号分隔<br>
+		<button id="btn">求和</button>
+		<div id="result"></div>
+	</div>
+	<script>
+	window.onload = function () {
+		var txt = document.getElementById('txt');
+		var btn = document.getElementById('btn');
+		var result = document.getElementById('result');
+		txt.onkeyup = function () {
+			// 正则表达式
+			this.value = this.value.replace(/[^(\d) | (,)]/,"");
+		}
+		btn.onclick = function () {
+			var sum = 0;
+			var num = txt.value.split(",");
+			for (var i in num) {
+				sum += parseInt(num[i]);
+			}
+			result.innerHTML = sum;
+		}
+	}
+	</script>
+</body>
+</html>
