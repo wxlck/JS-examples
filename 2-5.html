@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参，改变Div任意属性的值</title>
+	<style>
+		#outer {
+			text-align: center;
+		}
+		label {
+			display: inline-block;
+			margin-bottom: 8px;
+		}
+		#div1 {
+			height: 150px;
+			width: 150px;
+			background: black;
+			padding: 5px;
+			color: white;
+			font-size: 12px;
+			margin: 5px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<label for="name">属性名：<input id="name" type="text" value="background"></label><br>
+		<label for="zhi">属性值：<input id="zhi" type="text" value="red"></label><br>
+		<button id="sure">确定</button>&nbsp;&nbsp;&nbsp;
+		<button id="reset">重置</button>
+	</div>
+	<div id="div1">在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。</div>
+	<script>
+		window.onload = function () {
+			var sure = document.getElementById('sure');
+			var reset = document.getElementById('reset');
+			var name = document.getElementById('name');
+			var zhi = document.getElementById('zhi');
+			var div1 = document.getElementById('div1');
+		
+			sure.onclick = function () {
+				div1.style[name.value] = zhi.value;
+			}
+
+			reset.onclick = function () {
+				div1.style.height = div1.style.width = '150px';
+				div1.style.background = 'black';
+				div1.style.padding = '5px';
+				div1.style.color = 'white';
+				div1.style.fontSize = '12px';
+				div1.style.margin = '5px auto';
+			}
+		}
+	</script>
+</body>
+</html>
