@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单一按钮显示/隐藏</title>
+	<style>
+		body {
+			font-size: 12px;
+		}
+		body,p,ul {
+			margin: 0;
+			padding: 0;
+		}
+		#outer {
+			width: 200px;
+			margin: 10px auto;
+		}
+		li {
+			list-style: none;
+			padding: 4px 0 4px 12px;
+			background: #e9edf2;
+		}
+		p {
+			border: 1px solid #aaa;
+			padding: 5px 0 5px 10px;
+			background: #ced3e7;
+			cursor: pointer;
+		}
+		a {
+			text-decoration: none;
+			color: #000;
+		}
+		li:hover {
+			background: #fff;
+			cursor: pointer;
+			text-decoration: underline;
+		}
+		ul {
+			border: 1px solid #aaa;
+			border-top-width: 0;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<p id="p1">播放列表</p>
+		<ul id="ul1">
+			<li><a href="#">玩家之徒 - 蔡依林</a></li>
+			<li><a href="#">原谅我就是这样的女生 - 戴佩妮</a></li>
+			<li><a href="#">猜不透 - 丁当</a></li>
+			<li><a href="#">自导自演 - 周杰伦</a></li>
+			<li><a href="#">浪漫窝 - 弦子</a></li>
+			<li><a href="#">流年 - 王菲</a></li>
+		</ul>
+	</div>
+	<script>
+		window.onload = function () {
+			var p1 = document.getElementsByTagName('p')[0];
+			var ul1 = document.getElementsByTagName('ul')[0];
+			console.log(ul1.style.display);
+			p1.onclick = function () {
+				ul1.style.display = ul1.style.display == 'none' ? 'block' : 'none';
+
+				// 为什么不能用if？？？
+				// if (ul1.style.display == 'none') {
+				// 	ul1.style.display == 'block';
+				// } else {
+				// 	ul1.style.display == 'none'
+				// }
+			}
+		}
+	</script>
+</body>
+</html>
