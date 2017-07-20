@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复选框(checkbox)全选/全不选/反选</title>
+</head>
+<style>
+	body,input {
+		margin: 0;
+		padding: 0;
+	}
+	body {
+		font-size: 14px;
+	}
+	#outer {
+		border: 1px solid #000;
+		border-radius: 5px;
+		width: 130px;
+		overflow: hidden;
+		padding: 0 5px 10px;
+		margin: 20px auto;
+	}
+	input {
+		margin: 15px 0 0 5px;
+	}
+	/*label,input,a{vertical-align:middle;}*/
+	p {
+		text-align: center;
+	}
+	a {
+		text-decoration: none;
+		color: #09f;
+	}
+	a:hover {
+		color: red;
+	}
+	label {
+		padding: 0 8px;
+	} 
+</style>
+<body>
+	<div id="outer">
+		<input type="checkbox" class="first">
+		<label for=""><strong>全选</strong></label><label for=""><a href="#">反选</a></label>
+		<hr>
+		<input type="checkbox"><label for="">选项（一）</label><br>
+		<input type="checkbox"><label for="">选项（二）</label><br>
+		<input type="checkbox"><label for="">选项（三）</label><br>
+		<input type="checkbox"><label for="">选项（四）</label><br>
+		<input type="checkbox"><label for="">选项（五）</label><br>
+		<input type="checkbox"><label for="">选项（六）</label>	<br>
+		<input type="checkbox"><label for="">选项（七）</label><br>
+		<input type="checkbox"><label for="">选项（八）</label><br>
+		<input type="checkbox"><label for="">选项（九）</label><br>
+		<input type="checkbox"><label for="">选项（十）</label><br>
+	</div>
+	<p>
+		1、切换全选/全不选文字；2、根据选中个数更新全选框状态；
+	</p>
+	<script>
+		window.onload = function () {
+			var oInput = document.getElementsByTagName('input');
+			var oStrong = document.getElementsByTagName('strong');
+			var oA = document.getElementsByTagName('a');
+
+			// 判断复选框有没有被全部选中
+			var isCheckAll = function () {
+				for (var i = 1, n = 0; i < oInput.length; i++) {
+						oInput[i].checked && n++	
+				}
+				oInput[0].checked = n == oInput.length - 1;
+				oStrong[0].innerHTML = oInput[0].checked ? "全不选" : "全选"
+			};
+
+			// 全选与全不选
+			oInput[0].onclick = function () {
+				for (var i = 1; i < oInput.length; i++) {
+					oInput[i].checked = this.checked;
+				};
+				// 改变全选全不选汉字
+				// if (this.checked) {
+				// 	oStrong[0].innerHTML = '全不选';
+				// } else {
+				// 	oStrong[0].innerHTML = '全选';
+				// }
+				// oStrong[0].innerHTML = this.checked ? "全不选" : "全选";
+				isCheckAll();
+			}
+			
+			// 反选
+			oA[0].onclick = function () {
+				for (var i = 1; i < oInput.length; i++) {
+					oInput[i].checked = ! oInput[i].checked;
+				}
+				isCheckAll();
+			}
+
+			// 更新全选框的状态
+			for (var i = 1; i < oInput.length; i++) {
+				oInput[i].onclick = function () {
+					isCheckAll();
+				}	
+			}	
+		}
+	</script>
+</body>
+</html>
