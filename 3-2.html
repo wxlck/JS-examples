@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用parseInt解析数字，并求和</title>
+	<style>
+		#outer {
+			text-align: center;
+		}
+		input {
+			width: 60px;
+			height: 18px;
+			background: #f0f0f0;
+			border: 1px solid #ccc;
+		}
+		button {
+			border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="outer">
+		<input type="text"> + <input type="text"> = <span>?</span>
+		<button id="btn">求和</button>
+	</div>
+	<script>
+		window.onload = function () {
+			var oInput = document.getElementsByTagName('input');
+			var oSpan = document.getElementsByTagName('span')[0];
+			var btn = document.getElementById('btn');
+			
+			//禁止录入除了0-9以外的数字 用正则
+			for (var i = 0; i < oInput.length; i++) {
+				oInput[i].onkeyup = function () {
+					this.value = this.value.replace(/[^\d]/,"");
+				}
+			}
+
+			//求和
+			btn.onclick = function () {
+				if (oInput[0].value == '' || oInput[1].value == '') {
+					alert('请输入数字！');
+				} else {
+					oSpan.innerHTML = parseInt(oInput[0].value) + parseInt(oInput[1].value);
+				}
+			}
+		}
+	</script>
+</body>
+</html>
