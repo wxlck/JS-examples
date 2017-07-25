@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输入两个数字，比较大小</title>
+	<style>
+		body {
+			text-align: center;
+		}
+
+		input {
+			width: 80px;
+		}
+		span {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="text"> vs <input type="text"> <button>较大的数是&gt;&gt;</button> <span>？</span>
+	<script>
+		window.onload = function () {
+			var oInput = document.getElementsByTagName('input');
+			var btn = document.getElementsByTagName('button')[0];
+			var oSpan = document.getElementsByTagName('span')[0];
+
+			// 利用正则表达式只能输入数字
+			for (var i = 0; i < oInput.length; i++) {
+				oInput[i].onkeyup = function () {
+					this.value = this.value.replace(/[^\d]/,"");
+				}
+			}
+
+			
+			btn.onclick = function () {
+				// 未能得到正确结果
+				// if (oInput[0] == "" || oInput[1] == "" ) {
+				// 	alert("请输入数字！");
+				// } else {
+				// 	oSpan.innerHTML = oInput[0].value > oInput[1].value ? oInput[0].value : oInput[1].value;
+				// }
+				
+				//别人的写法 
+				(oInput[0] == "" || oInput[1] == "") ? alert("请输入数字！") : oSpan.innerHTML = Math.max(oInput[0].value, oInput[1].value);
+			}
+		}
+	</script>
+</body>
+</html>
