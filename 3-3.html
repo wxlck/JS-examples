@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>累加按钮，自加1</title>
+	<style>
+		body {
+			text-align: center;
+		}
+		button {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<button>0</button>
+	<script>
+		window.onload = function () {
+			var btn = document.getElementsByTagName('button')[0];
+			
+			// 自己的方案
+			// btn.onclick = function () {
+			// 	var i = btn.innerHTML;
+			// 	i++;
+			// 	btn.innerHTML = i;
+			// 	alert(i);
+			// }
+
+
+			// 别人的
+			var i = 0;
+			btn.onclick = function () {
+				btn.innerHTML = ++i;
+				alert(i);
+			}
+		}
+	</script>
+</body>
+</html>
