@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面加载后，自加1</title>
+	<style>
+		body {
+			text-align: center;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<span>1</span>
+	<script>
+		window.onload = function () {
+			var oSpan = document.getElementsByTagName('span')[0];
+			var i = 0;
+			setInterval(num, 1000);
+			num();
+			function num () {
+				oSpan.innerHTML = ++i;
+			}
+		}
+	</script>
+</body>
+</html>
